@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
-    Created on : 18-Mar-2015, 2:47:51 PM
-    Author     : c0640916
+    Created on : 18-Mar-2015, 2:56:56 PM
+    Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
 <%@ page language="java" import="java.util.*"  pageEncoding="UTF-8"%>
@@ -20,9 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
   </head>
   
   <body>
