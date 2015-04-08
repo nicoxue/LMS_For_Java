@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Form;
+
+import org.apache.struts.action.ActionForm;
 
 /**
  *
  * @author JIAJUN XUE <nicoxue0324@gmail.com>
  */
-public class BookForm {
+public class BookForm extends ActionForm {
+
     private String author;
     private String barcode;
     private String bookName;
@@ -25,12 +27,13 @@ public class BookForm {
     private int page;
     private Float price;
     private String publishing;
-
     private String translator;
     private int typeId;
     private String typeName;
-    public BookForm(){
+
+    public BookForm() {
     }
+
     public String getAuthor() {
         return author;
     }
@@ -51,7 +54,6 @@ public class BookForm {
         this.translator = translator;
     }
 
-  
     public void setPublishing(String publishing) {
         this.publishing = publishing;
     }
@@ -156,7 +158,6 @@ public class BookForm {
         return publishing;
     }
 
- 
     public String getTranslator() {
         return translator;
     }
@@ -168,5 +169,5 @@ public class BookForm {
     public String getTypeName() {
         return typeName;
     }
-    
+
 }

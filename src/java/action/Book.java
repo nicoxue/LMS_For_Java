@@ -6,9 +6,17 @@
 
 package action;
 
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.struts.action.ActionForward;
+import Form.BookForm;
+import org.apache.struts.action.Action;
+import DAO.BookDAO;
 import java.util.Date;
+
+
 /**
  *
  * @author JIAJUN XUE <nicoxue0324@gmail.com>
@@ -25,7 +33,7 @@ public class Book extends Action{
         String action =request.getParameter("action");
         System.out.println("\nbook*********************action="+action);
         if(action==null||"".equals(action)){
-            request.setAttribute("error","您的操作有误！");
+            request.setAttribute("error","operation failed!");
             return mapping.findForward("error");
         }else if("bookAdd".equals(action)){
             return bookAdd(mapping,form,request,response);
@@ -42,10 +50,11 @@ public class Book extends Action{
         }else if("bookifQuery".equals(action)){
             return bookifQuery(mapping,form,request,response);
         }
-        request.setAttribute("error","操作失败！");
+        request.setAttribute("error","operation failed!");
         return mapping.findForward("error");
     }
-    /***********************添加图书信息**************************/
+    
+    /***********************add books info**************************/
     private ActionForward bookAdd(ActionMapping mapping, ActionForm form,
                               HttpServletRequest request,
                               HttpServletResponse response){
@@ -58,8 +67,7 @@ public class Book extends Action{
            bookForm.setIsbn(bookForm.getIsbn());
            bookForm.setPrice(bookForm.getPrice());
            bookForm.setPage(bookForm.getPage());
-           bookForm.setBookcaseid(bookForm.getBookcaseid());    
-           //获取系统日期
+           bookForm.setBookcaseid(bookForm.getBookcaseid()); 
            Date date1=new Date();
            java.sql.Date date=new java.sql.Date(date1.getTime());
            bookForm.setInTime(date.toString());
@@ -68,22 +76,24 @@ public class Book extends Action{
            if(a==1){
                return mapping.findForward("bookAdd");
          }else if(a==2){
-             request.setAttribute("error","该图书信息已经添加！");
+             request.setAttribute("error","add book info successed!");
              return mapping.findForward("error");
          }else{
-             request.setAttribute("error","图书信息添加失败！");
+             request.setAttribute("error","add book info added failed!");
              return mapping.findForward("error");
         }
        }
-       /***********************查询全部图书信息**************************/
+    
+       /***********************select all books info**************************/
        private ActionForward bookQuery(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response){
        String str=null;
-       request.setAttribute("book",bookDAO.query(str));	//将查询结果保存到book中
-       return mapping.findForward("bookQuery");		//转到显示图书信息列表页面
+       request.setAttribute("book",bookDAO.query(str));	
+       return mapping.findForward("bookQuery");		
        }
-       /***********************条件查询图书信息**************************/
+       
+       /***********************select books info**************************/
        private ActionForward bookifQuery(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response){
@@ -93,20 +103,20 @@ public class Book extends Action{
                         request.getParameter("key") + "%";
        }
        request.setAttribute("ifbook",bookDAO.query(str));
-       System.out.print("条件查询图书信息时的str:"+str);
+       System.out.print("select where str:"+str);
        return mapping.findForward("bookifQuery");
        }
-        /***********************查询修改图书信息**************************/
+        /***********************modify books info**************************/
         private ActionForward bookModifyQuery(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response){
             BookForm bookForm=(BookForm)form;
-            System.out.println("查询修改图书信息："+request.getParameter("ID"));
+            System.out.println("modify books info："+request.getParameter("ID"));
             bookForm.setId(Integer.valueOf(request.getParameter("ID")));
             request.setAttribute("bookQueryif",bookDAO.queryM(bookForm));
             return mapping.findForward("bookQueryModify");
         }
-        /***********************查询图书详细信息**************************/
+        /***********************select books detail info***********************/
         private ActionForward bookDetail(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response){
@@ -115,12 +125,12 @@ public class Book extends Action{
             request.setAttribute("bookDetail",bookDAO.queryM(bookForm));
             return mapping.findForward("bookDeatil");
         }
-        /***********************修改图书信息**************************/
+        /***********************modify books detail info**************************/
         private ActionForward bookModify(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response){
-            BookForm bookForm=(BookForm)form;		//实例化BookForm类
-            bookForm.setBarcode(bookForm.getBarcode());	//获取并设置条形码属性
+            BookForm bookForm=(BookForm)form;		
+            bookForm.setBarcode(bookForm.getBarcode());	
             bookForm.setBookName(bookForm.getBookName());
             bookForm.setTypeId(bookForm.getTypeId());
             bookForm.setAuthor(bookForm.getAuthor());
@@ -131,15 +141,15 @@ public class Book extends Action{
             bookForm.setBookcaseid(bookForm.getBookcaseid());
             bookForm.setInTime(bookForm.getInTime());
             bookForm.setOperator(bookForm.getOperator());
-            int ret=bookDAO.update(bookForm);			//调用修改图书信息的方法update()
+            int ret=bookDAO.update(bookForm);			
             if(ret==0){
-                request.setAttribute("error","修改图书信息失败！");
-                return mapping.findForward("error");		//转到错误提示页面
+                request.setAttribute("error","modify books info failed!");
+                return mapping.findForward("error");		
             }else{
-                return mapping.findForward("bookModify");	//转到修改成功页面
+                return mapping.findForward("bookModify");	
             }
         }
-        /***********************删除图书信息**************************/
+        /***********************delete books info**************************/
         private ActionForward bookDel(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response){
@@ -147,10 +157,45 @@ public class Book extends Action{
             bookForm.setId(Integer.valueOf(request.getParameter("ID")));
             int ret=bookDAO.delete(bookForm);
             if(ret==0){
-                request.setAttribute("error","删除图书信息失败！");
+                request.setAttribute("error","delete books info failed!");
                 return mapping.findForward("error");
             }else{
                 return mapping.findForward("bookDel");
             }
         }    
+
+//    @Override
+//    public Object getValue(String key) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void putValue(String key, Object value) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void setEnabled(boolean b) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void addPropertyChangeListener(PropertyChangeListener listener) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void removePropertyChangeListener(PropertyChangeListener listener) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
