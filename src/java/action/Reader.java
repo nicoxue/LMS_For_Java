@@ -75,10 +75,10 @@ public class Reader extends Action {
         readerForm.setTypeid(readerForm.getTypeid());
         int a = readerDAO.insert(readerForm);
         if (a == 0) {
-            request.setAttribute("error", "读者信息添加失败！");
+            request.setAttribute("error", "add reader info failed");
             return mapping.findForward("error");
         } else if (a == 2) {
-            request.setAttribute("error", "该读者信息已经添加！");
+            request.setAttribute("error", "this reader info has been added");
             return mapping.findForward("error");
         } else {
             return mapping.findForward("readerAdd");
@@ -86,7 +86,7 @@ public class Reader extends Action {
     }
 
     /**
-     * *********************查询全部读者信息*************************
+     * *********************reader query*************************
      */
     private ActionForward readerQuery(ActionMapping mapping, ActionForm form,
             HttpServletRequest request,
@@ -97,20 +97,20 @@ public class Reader extends Action {
     }
 
     /**
-     * *********************查询修改读者信息*************************
+     * *********************reader modify query*************************
      */
     private ActionForward readerModifyQuery(ActionMapping mapping, ActionForm form,
             HttpServletRequest request,
             HttpServletResponse response) {
         ReaderForm readerForm = (ReaderForm) form;
-        System.out.println("查询修改读者信息：" + request.getParameter("ID"));
+        System.out.println("Modify & Query Reader:" + request.getParameter("ID"));
         readerForm.setId(Integer.valueOf(request.getParameter("ID")));
         request.setAttribute("readerQueryif", readerDAO.queryM(readerForm));
         return mapping.findForward("readerQueryModify");
     }
 
     /**
-     * *********************查询读者详细信息*************************
+     * *********************reader detail*************************
      */
     private ActionForward readerDetail(ActionMapping mapping, ActionForm form,
             HttpServletRequest request,
@@ -122,7 +122,7 @@ public class Reader extends Action {
     }
 
     /**
-     * *********************修改读者信息*************************
+     * *********************modify reader*************************
      */
     private ActionForward readerModify(ActionMapping mapping, ActionForm form,
             HttpServletRequest request,
@@ -142,7 +142,7 @@ public class Reader extends Action {
         readerForm.setTypeid(readerForm.getTypeid());
         int ret = readerDAO.update(readerForm);
         if (ret == 0) {
-            request.setAttribute("error", "修改读者信息失败！");
+            request.setAttribute("error", "modify reader info failed");
             return mapping.findForward("error");
         } else {
             return mapping.findForward("readerModify");
@@ -150,7 +150,7 @@ public class Reader extends Action {
     }
 
     /**
-     * *********************删除读者信息*************************
+     * *********************delete reader info*************************
      */
     private ActionForward readerDel(ActionMapping mapping, ActionForm form,
             HttpServletRequest request,
@@ -159,7 +159,7 @@ public class Reader extends Action {
         readerForm.setId(Integer.valueOf(request.getParameter("ID")));
         int ret = readerDAO.delete(readerForm);
         if (ret == 0) {
-            request.setAttribute("error", "删除读者信息失败！");
+            request.setAttribute("error", "delete reader info failed");
             return mapping.findForward("error");
         } else {
             return mapping.findForward("readerDel");
