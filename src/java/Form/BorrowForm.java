@@ -17,26 +17,20 @@ public class BorrowForm extends ActionForm {
     private String bookBarcode;
     private int bookId;
     private String bookName;
-    private String bookcaseName;
     private String borrowTime;
     private Integer id;
     private int ifBack;
-    private String operator;
     private Float price;
-    private String pubName;
     private String readerBarcode;
     private int readerId;
     private int degree;
-    private String author;
-
-    private String bookType;
+    private String author;    
     private String readerName;
     private String sex;
     private String birthday;
     private String paperType;
     private String paperNo;
     private String tel;
-    private String readerType;
 
     public String getBackTime() {
         return backTime;
@@ -54,16 +48,8 @@ public class BorrowForm extends ActionForm {
         this.readerBarcode = readerBarcode;
     }
 
-    public void setPubName(String pubName) {
-        this.pubName = pubName;
-    }
-
     public void setPrice(Float price) {
         this.price = price;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
     }
 
     public void setIfBack(int ifBack) {
@@ -76,10 +62,6 @@ public class BorrowForm extends ActionForm {
 
     public void setBorrowTime(String borrowTime) {
         this.borrowTime = borrowTime;
-    }
-
-    public void setBookcaseName(String bookcaseName) {
-        this.bookcaseName = bookcaseName;
     }
 
     public void setBookName(String bookName) {
@@ -110,10 +92,6 @@ public class BorrowForm extends ActionForm {
         return bookName;
     }
 
-    public String getBookcaseName() {
-        return bookcaseName;
-    }
-
     public String getBorrowTime() {
         return borrowTime;
     }
@@ -126,16 +104,8 @@ public class BorrowForm extends ActionForm {
         return ifBack;
     }
 
-    public String getOperator() {
-        return operator;
-    }
-
     public Float getPrice() {
         return price;
-    }
-
-    public String getPubName() {
-        return pubName;
     }
 
     public String getReaderBarcode() {
@@ -156,14 +126,6 @@ public class BorrowForm extends ActionForm {
 
     public String getAuthor() {
         return author;
-    }
-
-    public void setBookType(String bookType) {
-        this.bookType = bookType;
-    }
-
-    public String getBookType() {
-        return bookType;
     }
 
     public void setReaderName(String readerName) {
@@ -212,13 +174,5 @@ public class BorrowForm extends ActionForm {
 
     public String getTel() {
         return tel;
-    }
-
-    public void setReaderType(String readerType) {
-        this.readerType = readerType;
-    }
-
-    public String getReaderType() {
-        return readerType;
     }
 }

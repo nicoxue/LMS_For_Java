@@ -42,7 +42,7 @@
                 }
 
                 if (form.number.value - form.borrowNumber.value <= 0) {
-                    alert("You can not borrow other books!");
+                    alert("You can not borrow any books more!");
                     return;
                 }
                 form.submit();
@@ -50,7 +50,7 @@
         </script>
     </head>
     <body onLoad="clockon(bgclock)">
-        <%@include file="banner.jsp"%>
+        <%@include file="loginif_check.jsp"%>
         <%@include file="navigation.jsp"%>
         <table width="778"  border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
@@ -75,8 +75,6 @@
                                                             String birthday = "";
                                                             String paperType = "";
                                                             String paperNO = "";
-                                                            int number = 0;
-                                                            String typename = "";
                                                             if (readerForm != null) {
                                                                 ID = readerForm.getId().intValue();
                                                                 name = readerForm.getName();
@@ -85,13 +83,9 @@
                                                                 birthday = readerForm.getBirthday();
                                                                 paperType = readerForm.getPaperType();
                                                                 paperNO = readerForm.getPaperNO();
-                                                                number = readerForm.getNumber();
-                                                                typename = readerForm.getTypename();
                                                             }
                                                             %>
                                                             <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-
-
                                                                 <tr>
                                                                     <td><table width="90%" height="21" border="0" cellpadding="0" cellspacing="0">
                                                                             <tr>
@@ -119,14 +113,13 @@
                                                                                     <input name="paperType" type="text" id="paperType" value="<%=paperType%>"></td>
                                                                                 <td>Visa Id:
                                                                                     <input name="paperNo" type="text" id="paperNo" value="<%=paperNO%>"></td>
-                                                                                <td>Num (can borrow)
-                                                                                    <input name="number" type="text" id="number" value="<%=number%>" size="17">
-                                                                                    &nbsp;</td>
                                                                             </tr>
-                                                                        </table></td>
+                                                                        </table>
+                                                                    </td>
                                                                 </tr>
 
-                                                            </table></td>
+                                                            </table>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td height="32" background="Images/borrow_if.gif">&nbsp;Add of reference:
@@ -136,7 +129,6 @@
                                                             Book Name&nbsp;&nbsp;
                                                             <input name="inputkey" type="text" id="inputkey" size="50">
                                                             <input name="Submit2" type="button" class="btn_grey" value="Submit" onClick="checkbook(form1)">
-                                                            <input name="operator" type="hidden" id="operator" value="<%=manager%>">
                                                             <input name="Button" type="button" class="btn_grey" value="Borrow Complete" onClick="window.location.href = 'bookBorrow.jsp'">
                                                         </td>
                                                     </tr> 
@@ -154,7 +146,6 @@
                                                                     String backTime = "";
                                                                     Float price = new Float(0);
                                                                     String pubname = "";
-                                                                    String bookcase = "";
                                                                     if (coll != null && !coll.isEmpty()) {
                                                                         borrowNumber = coll.size();
                                                                         Iterator it = coll.iterator();
@@ -165,7 +156,6 @@
                                                                             backTime = borrowForm.getBackTime();
                                                                             price = borrowForm.getPrice();
                                                                             pubname = borrowForm.getPubName();
-                                                                            bookcase = borrowForm.getBookcaseName();
                                                                 %>
                                                                 <tr>
                                                                     <td height="25" style="padding:5px;">&nbsp;<%=bookname%></td>

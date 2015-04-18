@@ -20,7 +20,7 @@
     <script language="javascript">
         function checkreader(form) {
             if (form.barcode.value == "") {
-                alert("Please enter the code!");
+                alert("Please enter reader code!");
                 form.barcode.focus();
                 return;
             }
@@ -53,8 +53,6 @@
                                                     String birthday = "";
                                                     String paperType = "";
                                                     String paperNO = "";
-                                                    int number = 0;
-                                                    String typename = "";
                                                     if (readerForm != null) {
                                                         ID = readerForm.getId().intValue();
                                                         name = readerForm.getName();
@@ -63,8 +61,6 @@
                                                         birthday = readerForm.getBirthday();
                                                         paperType = readerForm.getPaperType();
                                                         paperNO = readerForm.getPaperNO();
-                                                        number = readerForm.getNumber();
-                                                        typename = readerForm.getTypename();
                                                     }
                                                     %>
                                                     <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
@@ -77,7 +73,7 @@
                                                                             <td width="76%" style="padding-top:7px;">Reader Code：
                                                                                 <input name="barcode" type="text" id="barcode" value="<%=barcode%>" size="24">
                                                                                 &nbsp;
-                                                                                <input name="Button" type="button" class="btn_grey" value="确定" onClick="checkreader(form1)"></td>
+                                                                                <input name="Button" type="button" class="btn_grey" value="Submit" onClick="checkreader(form1)"></td>
                                                                         </tr>
                                                                     </table></td>
                                                             </tr>
@@ -91,17 +87,13 @@
                                                                                 <input name="readername" type="text" id="readername" value="<%=name%>"></td>
                                                                             <td>Sex：
                                                                                 <input name="sex" type="text" id="sex" value="<%=sex%>"></td>
-                                                                            <td>Type：
-                                                                                <input name="readerType" type="text" id="readerType" value="<%=typename%>"></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td height="27">Visa Type：
                                                                                 <input name="paperType" type="text" id="paperType" value="<%=paperType%>"></td>
                                                                             <td>Visa Number：
                                                                                 <input name="paperNo" type="text" id="paperNo" value="<%=paperNO%>"></td>
-                                                                            <td>Number borrow：
-                                                                                <input name="number" type="text" id="number" value="<%=number%>" size="17">
-                                                                            </td>
+
                                                                         </tr>
                                                                     </table></td>
                                                             </tr>
@@ -123,8 +115,6 @@
                                                             String borrowTime = "";
                                                             String backTime = "";
                                                             Float price = new Float(0);
-                                                            String pubname = "";
-                                                            String bookcase = "";
                                                             if (coll != null && !coll.isEmpty()) {
                                                                 Iterator it = coll.iterator();
                                                                 while (it.hasNext()) {
@@ -134,15 +124,11 @@
                                                                     borrowTime = borrowForm.getBorrowTime();
                                                                     backTime = borrowForm.getBackTime();
                                                                     price = borrowForm.getPrice();
-                                                                    pubname = borrowForm.getPubName();
-                                                                    bookcase = borrowForm.getBookcaseName();
                                                         %>
                                                         <tr>
                                                             <td height="25" style="padding:5px;">&nbsp;<%=bookname%></td>
                                                             <td style="padding:5px;">&nbsp;<%=borrowTime%></td>
                                                             <td style="padding:5px;">&nbsp;<%=backTime%></td>
-                                                            <td align="center">&nbsp;<%=pubname%></td>
-                                                            <td align="center">&nbsp;<%=bookcase%></td>
                                                             <td width="13%" align="center">&nbsp;<%=price%></td>
                                                             <td width="12%" align="center"><a href="borrow.do?action=bookback&barcode=<%=barcode%>&id=<%=id%>&operator=<%=manager%>">Back</a>&nbsp;</td>
                                                         </tr>

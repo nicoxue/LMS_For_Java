@@ -42,32 +42,17 @@ public class Borrow extends Action {
         if (action == null || "".equals(action)) {
             request.setAttribute("error", "Error Operation!");
             return mapping.findForward("error");
-        } else if ("bookBorrowSort".equals(action)) {
-            return bookBorrowSort(mapping, form, request, response);
         } else if ("bookborrow".equals(action)) {
             return bookborrow(mapping, form, request, response);  //book borrow
         } else if ("bookrenew".equals(action)) {
             return bookrenew(mapping, form, request, response);  //book borrow more
         } else if ("bookback".equals(action)) {
             return bookback(mapping, form, request, response);  //book return
-        } else if ("Bremind".equals(action)) {
-            return bremind(mapping, form, request, response);  //book due time remind
         } else if ("borrowQuery".equals(action)) {
             return borrowQuery(mapping, form, request, response);  //borrow info
         }
         request.setAttribute("error", "Operation");
         return mapping.findForward("error");
-    }
-
-    /**
-     * *******************Borrowed Book Rank**********************
-     */
-    private ActionForward bookBorrowSort(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request,
-            HttpServletResponse response) {
-        request.setAttribute("bookBorrowSort", borrowDAO.bookBorrowSort());
-        return mapping.findForward("bookBorrowSort");
-
     }
 
     /**
@@ -119,16 +104,6 @@ public class Borrow extends Action {
     }
 
     /**
-     * *******************Due time Reminder**********************
-     */
-    private ActionForward bremind(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request,
-            HttpServletResponse response) {
-        request.setAttribute("Bremind", borrowDAO.bremind());
-        return mapping.findForward("Bremind");
-    }
-
-    /**
      * *******************Book Borrow**********************
      */
     private ActionForward bookborrow(ActionMapping mapping, ActionForm form,
@@ -141,11 +116,9 @@ public class Borrow extends Action {
         String f = request.getParameter("f");
         String key = request.getParameter("inputkey");
         if (key != null && !key.equals("")) {
-            String operator = request.getParameter("operator");
             BookForm bookForm = bookDAO.queryB(f, key);
             if (bookForm != null) {
-                int ret = borrowDAO.insertBorrow(reader, bookDAO.queryB(f, key),
-                        operator);
+                int ret = borrowDAO.insertBorrow(reader, bookDAO.queryB(f, key));
                 if (ret == 1) {
                     request.setAttribute("bar", request.getParameter("barcode"));
                     return mapping.findForward("bookborrowok");
@@ -200,9 +173,8 @@ public class Borrow extends Action {
         request.setAttribute("borrowinfo", borrowDAO.borrowinfo(request.getParameter("barcode")));
         if (request.getParameter("id") != null) {
             int id = Integer.parseInt(request.getParameter("id"));
-            String operator = request.getParameter("operator");
             if (id > 0) {
-                int ret = borrowDAO.back(id, operator);
+                int ret = borrowDAO.back(id);
                 if (ret == 0) {
                     request.setAttribute("error", "book back failed!");
                     return mapping.findForward("error");

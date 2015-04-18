@@ -26,7 +26,6 @@ public class ReaderForm extends ActionForm {
     private String sex;
     private String tel;
     private String vocation;
-    private int number;
 
     public ReaderForm() {
     }
@@ -135,11 +134,4 @@ public class ReaderForm extends ActionForm {
         return vocation;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
 }

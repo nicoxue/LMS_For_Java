@@ -6,67 +6,36 @@
 
 <%@ page contentType="text/html" pageEncoding="UTF-8" language="java" import="java.sql.*" errorPage=""%>
 <%@ page import="DAO.BookDAO" %>
-<%@ page import="DAO.BookTypeDAO" %>
 <%@ page import="Form.BookForm" %>
-<%@ page import="Form.BookTypeForm"%>
-<%@ page import="DAO.BookCaseDAO" %>
-<%@ page import="Form.BookCaseForm" %>
-<%@ page import="DAO.PublishingDAO" %>
-<%@ page import="Form.PublishingForm" %>
 <%@ page import="java.util.*"%>
 <!DOCTYPE html>
-<%
-    String str = null;
-    BookTypeDAO bookTypeDAO = new BookTypeDAO();
-    Collection coll_type = (Collection) bookTypeDAO.query(str);
-    if (coll_type == null || coll_type.isEmpty()) {
-        out.println("<script>alert('Please insert book type info!');history.back(-1);</script>");
-    } else {
-        Iterator it_type = coll_type.iterator();
-        int typeID = 0;
-        String typename = "";
-        BookCaseDAO bookcaseDAO = new BookCaseDAO();
-        String str1 = null;
-        Collection coll_bookcase = (Collection) bookcaseDAO.query(str1);
-        if (coll_bookcase == null || coll_bookcase.isEmpty()) {
-            out.println("<script>alert('Please insert shelf info!');history.back(-1);</script>");
-        } 
-//        else {
-//            Iterator it_bookcase = coll_bookcase.iterator();
-//            int bookcaseID = 0;
-//            String bookcasename = "";
-//            PublishingDAO pubDAO = new PublishingDAO();
-//            String str2 = null;
-//            Collection coll_pub = (Collection) pubDAO.query(str2);
-//            if (coll_pub == null || coll_pub.isEmpty()) {
-//                out.println("<script>alert('Please enter publisher info!');history.back(-1);</script>");
-//            } else {
-//                Iterator it_pub = coll_pub.iterator();
-//                String isbn = "";
-//                String pubname = "";
-%>
-<script language="jscript">
-    function check(form) {
-        if (form.barcode.value == "") {
-            alert("Please enter code!");
-            form.barcode.focus();
-            return false;
-        }
-        if (form.bookName.value == "") {
-            alert("Please enter book name!");
-            form.bookName.focus();
-            return false;
-        }
-        if (form.price.value == "") {
-            alert("Please enter book price!");
-            form.price.focus();
-            return false;
-        }
-    }
-</script>
 <head>
     <title>Library Management System</title>
     <link href="CSS/style.css" rel="stylesheet">
+    <script language="jscript">
+        function check(form) {
+            if (form.barcode.value == "") {
+                alert("Please enter code!");
+                form.barcode.focus();
+                return false;
+            }
+            if (form.bookName.value == "") {
+                alert("Please enter book name!");
+                form.bookName.focus();
+                return false;
+            }
+            if (form.price.value == "") {
+                alert("Please enter book price!");
+                form.price.focus();
+                return false;
+            }
+            if (form.days.value == "") {
+                alert("Please enter days!");
+                form.days.focus();
+                return false;
+            }
+        }
+    </script>
 </head>
 <body onLoad="clockon(bgclock)">
     <%@include file="loginif_check.jsp"%>
@@ -77,7 +46,7 @@
                     <tr>
                         <td height="510" valign="top" style="padding:5px;"><table width="98%" height="487"  border="0" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td height="22" valign="top" class="word_orange">当前位置：图书管理 &gt; 图书档案管理 &gt; 添加图书信息 &gt;&gt;&gt;</td>
+                                    <td height="22" valign="top" class="word_orange">Now：Book Management &gt; Book Info &gt; Add Book Info &gt;&gt;&gt;</td>
                                 </tr>
                                 <tr>
                                     <td align="center" valign="top"><table width="100%" height="493"  border="0" cellpadding="0" cellspacing="0">
@@ -86,82 +55,42 @@
                                                     <form name="form1" method="post" action="book.do?action=bookAdd">
                                                         <table width="600" height="432"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
                                                             <tr>
-                                                                <td width="173" align="center">条&nbsp;形&nbsp;码：</td>
+                                                                <td width="173" align="center">Bar Code:</td>
                                                                 <td width="427" height="39">
                                                                     <input name="barcode" type="text" id="barcode">
                                                                     *</td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center">图书名称：</td>
+                                                                <td align="center">Book Name:</td>
                                                                 <td height="39"><input name="bookName" type="text" id="bookName" size="50">
                                                                     * </td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center">图书类型：</td>
-                                                                <td>
-                                                                    <select name="typeId" class="wenbenkuang" id="typeId">
-                                                                        <%
-                                                                            while (it_type.hasNext()) {
-                                                                                BookTypeForm bookTypeForm = (BookTypeForm) it_type.next();
-                                                                                typeID = bookTypeForm.getId().intValue();
-                                                                                typename = chStr.toChinese(bookTypeForm.getTypeName());
-                                                                        %> 		
-
-                                                                        <option value="<%=typeID%>"><%=typename%></option>
-                                                                        <%}%> 
-                                                                    </select>        </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="center">作者：</td>
+                                                                <td align="center">Author:</td>
                                                                 <td><input name="author" type="text" id="author" size="40"></td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center">译者：</td>
+                                                                <td align="center">Translator:</td>
                                                                 <td><input name="translator" type="text" id="translator" size="40"></td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center">出版社：</td>
-                                                                <td><select name="isbn" class="wenbenkuang">
-                                                                        <%
-                                                                            while (it_pub.hasNext()) {
-                                                                                PublishingForm pubForm = (PublishingForm) it_pub.next();
-                                                                                isbn = pubForm.getIsbn();
-                                                                                pubname = chStr.toChinese(pubForm.getPubname());
-                                                                        %> 		
-
-                                                                        <option value="<%=isbn%>"><%=pubname%></option>
-                                                                        <%}%> 
-                                                                    </select> </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="center">价格：</td>
+                                                                <td align="center">Price:</td>
                                                                 <td><input name="price" type="text" id="price"> 
-                                                                    (元) * </td>
+                                                                    Dollars * </td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center">页码：</td>
+                                                                <td align="center">Page:</td>
                                                                 <td><input name="page" type="text" id="page"></td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center">书架：</td>
-                                                                <td><select name="bookcaseid" class="wenbenkuang" id="bookcaseid">
-                                                                        <%
-                                                                            while (it_bookcase.hasNext()) {
-                                                                                BookCaseForm bookCaseForm = (BookCaseForm) it_bookcase.next();
-                                                                                bookcaseID = bookCaseForm.getId().intValue();
-                                                                                bookcasename = chStr.toChinese(bookCaseForm.getName());
-                                                                        %> 		
-
-                                                                        <option value="<%=bookcaseID%>"><%=bookcasename%></option>
-                                                                        <%}%> 
-                                                                    </select>
-                                                                    <input name="operator" type="hidden" id="operator" value="<%=chStr.toChinese(manager)%>"></td>
+                                                                <td align="center">Days(Borrow):</td>
+                                                                <td><input name="days" type="text" id="days"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td align="center">&nbsp;</td>
-                                                                <td><input name="Submit" type="submit" class="btn_grey" value="保存" onClick="return check(form1)">
+                                                                <td><input name="Submit" type="submit" class="btn_grey" value="Save" onClick="return check(form1)">
                                                                     &nbsp;
-                                                                    <input name="Submit2" type="button" class="btn_grey" value="返回" onClick="history.back()"></td>
+                                                                    <input name="Submit2" type="button" class="btn_grey" value="Back" onClick="history.back()"></td>
                                                             </tr>
                                                         </table>
                                                     </form>
@@ -175,8 +104,5 @@
                 </table></td>
         </tr>
     </table>
-    <%}
-            }
-        }%>
 </body>
 </html>

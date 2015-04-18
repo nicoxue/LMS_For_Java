@@ -27,7 +27,7 @@
                         <tr>
                             <td height="510" valign="top" style="padding:5px;"><table width="98%"  border="0" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td height="22" valign="top" class="word_orange">Now：Library Management &gt; Book Info Management &gt;&gt;&gt;</td>
+                                        <td height="22" valign="top" class="word_orange">Now：Library Management &gt; Book Info &gt;&gt;&gt;</td>
                                     </tr>
                                     <tr>
                                         <td align="center" valign="top"><%
@@ -50,9 +50,6 @@
                                                 int ID = 0;
                                                 String bookname = "";
                                                 String barcode = "";
-                                                String typename = "";
-                                                String publishing = "";
-                                                String bookcase = "";
                                                 int storage = 0;
                                             %>
                                             <table width="100%"  border="0" cellspacing="0" cellpadding="0">
@@ -64,9 +61,8 @@
                                             </table>  
                                             <table width="98%"  border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#F6B83B" bordercolorlight="#FFFFFF">
                                                 <tr align="center" bgcolor="#e3F4F7">
-                                                    <td width="13%" bgcolor="#F9D16B">Code</td>  
+                                                    <td width="13%" bgcolor="#F9D16B">Bar Code</td>  
                                                     <td width="26%" bgcolor="#F9D16B">Book Name</td>
-                                                    <td width="15%" bgcolor="#F9D16B">Book Type</td>
                                                     <td width="9%" bgcolor="#F9D16B">Modify</td>
                                                     <td width="5%" bgcolor="#F9D16B">Delete</td>
                                                 </tr>
@@ -76,16 +72,10 @@
                                                         ID = bookForm.getId().intValue();
                                                         bookname = bookForm.getBookName();
                                                         barcode = bookForm.getBarcode();
-                                                        typename = bookForm.getTypeName();
-                                                        bookcase = bookForm.getBookcaseName();
                                                 %> 
                                                 <tr>
                                                     <td style="padding:5px;">&nbsp;<%=barcode%></td>  
                                                     <td style="padding:5px;"><a href="book.do?action=bookDetail&ID=<%=ID%>"><%=bookname%></a></td>
-                                                    <td style="padding:5px;">&nbsp;<%=typename%></td>  
-                                                    <td style="padding:5px;">&nbsp;<%=publishing%></td>  
-                                                    <td style="padding:5px;">&nbsp;<%=bookcase%></td>  
-
                                                     <td align="center"><a href="book.do?action=bookModifyQuery&ID=<%=ID%>">Modify</a></td>
                                                     <td align="center"><a href="book.do?action=bookDel&ID=<%=ID%>">Delete</a></td>
                                                 </tr>

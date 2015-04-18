@@ -72,7 +72,6 @@ public class Reader extends Action {
         readerForm.setCreateDate(date.toString());
         readerForm.setOperator(readerForm.getOperator());
         readerForm.setRemark(readerForm.getRemark());
-        readerForm.setTypeid(readerForm.getTypeid());
         int a = readerDAO.insert(readerForm);
         if (a == 0) {
             request.setAttribute("error", "add reader info failed");
@@ -139,7 +138,6 @@ public class Reader extends Action {
         readerForm.setEmail(readerForm.getEmail());
         readerForm.setOperator(readerForm.getOperator());
         readerForm.setRemark(readerForm.getRemark());
-        readerForm.setTypeid(readerForm.getTypeid());
         int ret = readerDAO.update(readerForm);
         if (ret == 0) {
             request.setAttribute("error", "modify reader info failed");

@@ -62,12 +62,11 @@ public class Book extends Action{
            bookForm.setBarcode(bookForm.getBarcode());
            bookForm.setBookName(bookForm.getBookName());
            bookForm.setAuthor(bookForm.getAuthor());
+           bookForm.setTranslator(bookForm.getTranslator());
+           bookForm.setIsbn(bookForm.getIsbn());
            bookForm.setPrice(bookForm.getPrice());
            bookForm.setPage(bookForm.getPage());
-           Date date1=new Date();
-           java.sql.Date date=new java.sql.Date(date1.getTime());
-           bookForm.setInTime(date.toString());
-           bookForm.setOperator(bookForm.getOperator());
+           bookForm.setDays(bookForm.getDays());
            int a=bookDAO.insert(bookForm);
            if(a==1){
                return mapping.findForward("bookAdd");
@@ -131,8 +130,7 @@ public class Book extends Action{
             bookForm.setAuthor(bookForm.getAuthor());
             bookForm.setPrice(bookForm.getPrice());
             bookForm.setPage(bookForm.getPage());
-            bookForm.setInTime(bookForm.getInTime());
-            bookForm.setOperator(bookForm.getOperator());
+            bookForm.setDays(bookForm.getDays());
             int ret=bookDAO.update(bookForm);			
             if(ret==0){
                 request.setAttribute("error","modify books info failed!");

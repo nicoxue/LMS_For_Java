@@ -26,10 +26,9 @@ public class ReaderDAO {
         Collection readerColl = new ArrayList();
         String sql = "";
         if (strif != "all" && strif != null && strif != "") {
-            sql = "select r.*,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id "
-                    + "where " + strif + "";
+            sql = "select * from tb_reader where " + strif + "";
         } else {
-            sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id";
+            sql = "select * from tb_reader";
         }
         ResultSet rs = conn.executeQuery(sql);
         try {
@@ -48,9 +47,6 @@ public class ReaderDAO {
                 readerForm.setCreateDate(rs.getString(11));
                 readerForm.setOperator(rs.getString(12));
                 readerForm.setRemark(rs.getString(13));
-                readerForm.setTypeid(rs.getInt(14));
-                readerForm.setTypename(rs.getString(15));
-                readerForm.setNumber(rs.getInt(16));
                 readerColl.add(readerForm);
             }
         } catch (SQLException ex) {
@@ -64,11 +60,9 @@ public class ReaderDAO {
         ReaderForm readerForm1 = null;
         String sql = "";
         if (readerForm.getId() != null) {
-            sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id "
-                    + "where r.id=" + readerForm.getId() + "";
+            sql = "select * from tb_reader where id=" + readerForm.getId() + "";
         } else if (readerForm.getBarcode() != null) {
-            sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id "
-                    + "where r.barcode=" + readerForm.getBarcode() + "";
+            sql = "select * from tb_reader where barcode=" + readerForm.getBarcode() + "";
         }
         System.out.println("Modify Reader Info SQL：" + sql);
         ResultSet rs = conn.executeQuery(sql);
@@ -88,9 +82,6 @@ public class ReaderDAO {
                 readerForm1.setCreateDate(rs.getString(11));
                 readerForm1.setOperator(rs.getString(12));
                 readerForm1.setRemark(rs.getString(13));
-                readerForm1.setTypeid(rs.getInt(14));
-                readerForm1.setTypename(rs.getString(15));
-                readerForm1.setNumber(rs.getInt(16));
                 System.out.println(rs.getString(2));
             }
         } catch (SQLException ex) {
@@ -110,12 +101,12 @@ public class ReaderDAO {
                 falg = 2;
             } else {
                 sql = "Insert into tb_reader (name,sex,barcode,vocation,birthday,paperType,paperNO,tel,email,"
-                        + "createDate,operator,remark,typeid) values('" + readerForm.getName() + "','"
+                        + "createDate,operator,remark) values('" + readerForm.getName() + "','"
                         + readerForm.getSex() + "','" + readerForm.getBarcode() + "','" + readerForm.getVocation()
                         + "','" + readerForm.getBirthday() + "','" + readerForm.getPaperType() + "','"
                         + readerForm.getPaperNO() + "','" + readerForm.getTel() + "','" + readerForm.getEmail()
                         + "','" + readerForm.getCreateDate() + "','" + readerForm.getOperator() + "','"
-                        + readerForm.getRemark() + "'," + readerForm.getTypeid() + ")";
+                        + readerForm.getRemark() + "'," + ")";
                 falg = conn.executeUpdate(sql);
                 System.out.println("Add Reader Info SQL：" + sql);
                 conn.close();
@@ -133,7 +124,7 @@ public class ReaderDAO {
                 + "',vocation='" + readerForm.getVocation() + "',birthday='" + readerForm.getBirthday()
                 + "',paperType='" + readerForm.getPaperType() + "',paperNO='" + readerForm.getPaperNO()
                 + "',tel='" + readerForm.getTel() + "',email='" + readerForm.getEmail() + "',remark='"
-                + readerForm.getRemark() + "',typeid=" + readerForm.getTypeid() + " where id=" + readerForm.getId() + "";
+                + readerForm.getRemark() + " where id=" + readerForm.getId() + "";
         int falg = conn.executeUpdate(sql);
         System.out.println("Update Reader Info SQL：" + sql);
         conn.close();

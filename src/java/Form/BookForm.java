@@ -19,10 +19,10 @@ public class BookForm extends ActionForm {
     private int days;
     private int del;
     private Integer id;
-    private String inTime;
-    private String operator;
     private int page;
     private Float price;
+    private String translator;
+    private String isbn;
 
     public BookForm() {
     }
@@ -41,14 +41,6 @@ public class BookForm extends ActionForm {
 
     public void setPage(int page) {
         this.page = page;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public void setInTime(String inTime) {
-        this.inTime = inTime;
     }
 
     public void setId(Integer id) {
@@ -91,19 +83,27 @@ public class BookForm extends ActionForm {
         return id;
     }
 
-    public String getInTime() {
-        return inTime;
-    }
-
-    public String getOperator() {
-        return operator;
-    }
-
     public int getPage() {
         return page;
     }
 
     public Float getPrice() {
         return price;
+    }
+
+    public String getTranslator() {
+        return translator;
+    }
+
+    public void setTranslator(String translator) {
+        this.translator = translator;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }
