@@ -178,4 +178,33 @@ public class BorrowDAO {
         conn.close();
         return coll;
     }
+
+    public Collection bookBorrowSort() {
+        String sql = "select * from (SELECT bookid,count(bookid) as degree FROM tb_borrow group by bookid) as borr "
+                + "join (select *  from tb_bookinfo where del=0) as book on borr.bookid=book.id "
+                + "order by borr.degree desc limit 10 ";
+        System.out.println("Book Borrow Rank" + sql);
+        Collection coll = new ArrayList();
+        BorrowForm form = null;
+        ResultSet rs = conn.executeQuery(sql);
+
+        try {
+            while (rs.next()) {
+                form = new BorrowForm();
+                form.setBookId(rs.getInt(1));
+                form.setDegree(rs.getInt(2));
+                form.setBookBarcode(rs.getString(3));
+                form.setBookName(rs.getString(4));
+                form.setAuthor(rs.getString(6));
+                form.setPrice(Float.valueOf(rs.getString(9)));
+                
+                coll.add(form);
+                System.out.print("RS：" + rs.getString(4));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        conn.close();
+        return coll;
+    }
 }

@@ -145,7 +145,6 @@
                                                                     String borrowTime = "";
                                                                     String backTime = "";
                                                                     Float price = new Float(0);
-                                                                    String pubname = "";
                                                                     if (coll != null && !coll.isEmpty()) {
                                                                         borrowNumber = coll.size();
                                                                         Iterator it = coll.iterator();
@@ -155,31 +154,27 @@
                                                                             borrowTime = borrowForm.getBorrowTime();
                                                                             backTime = borrowForm.getBackTime();
                                                                             price = borrowForm.getPrice();
-                                                                            pubname = borrowForm.getPubName();
                                                                 %>
                                                                 <tr>
                                                                     <td height="25" style="padding:5px;">&nbsp;<%=bookname%></td>
                                                                     <td style="padding:5px;">&nbsp;<%=borrowTime%></td>
                                                                     <td style="padding:5px;">&nbsp;<%=backTime%></td>
-                                                                    <td align="center">&nbsp;<%=pubname%></td>
-                                                                    <td align="center">&nbsp;<%=bookcase%></td>
                                                                     <td width="14%" align="center">&nbsp;<%=price%></td>
                                                                 </tr>
-                                                                <%	}
-                                                                    }%>
-                                                                <input name="borrowNumber" type="hidden" id="borrowNumber" value="<%=borrowNumber%>">
                                                             </table>
                                                         </td>
                                                     </tr>
 
-                                                </table></td>
-
+                                                </table>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td height="19" background="Images/main_booksort_2.gif">&nbsp;</td>
                                         </tr>
                                     </form>
-                                </table></td>
+                                </table>
+
+                            </td>
                         </tr>
                     </table>
                 </td>

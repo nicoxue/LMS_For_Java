@@ -45,8 +45,7 @@ public class ReaderDAO {
                 readerForm.setTel(rs.getString(9));
                 readerForm.setEmail(rs.getString(10));
                 readerForm.setCreateDate(rs.getString(11));
-                readerForm.setOperator(rs.getString(12));
-                readerForm.setRemark(rs.getString(13));
+                readerForm.setRemark(rs.getString(12));
                 readerColl.add(readerForm);
             }
         } catch (SQLException ex) {
@@ -80,8 +79,7 @@ public class ReaderDAO {
                 readerForm1.setTel(rs.getString(9));
                 readerForm1.setEmail(rs.getString(10));
                 readerForm1.setCreateDate(rs.getString(11));
-                readerForm1.setOperator(rs.getString(12));
-                readerForm1.setRemark(rs.getString(13));
+                readerForm1.setRemark(rs.getString(12));
                 System.out.println(rs.getString(2));
             }
         } catch (SQLException ex) {
@@ -101,12 +99,11 @@ public class ReaderDAO {
                 falg = 2;
             } else {
                 sql = "Insert into tb_reader (name,sex,barcode,vocation,birthday,paperType,paperNO,tel,email,"
-                        + "createDate,operator,remark) values('" + readerForm.getName() + "','"
+                        + "createDate,remark) values('" + readerForm.getName() + "','"
                         + readerForm.getSex() + "','" + readerForm.getBarcode() + "','" + readerForm.getVocation()
                         + "','" + readerForm.getBirthday() + "','" + readerForm.getPaperType() + "','"
                         + readerForm.getPaperNO() + "','" + readerForm.getTel() + "','" + readerForm.getEmail()
-                        + "','" + readerForm.getCreateDate() + "','" + readerForm.getOperator() + "','"
-                        + readerForm.getRemark() + "'," + ")";
+                        + "','" + readerForm.getCreateDate() + "','" + readerForm.getRemark() + "'," + ")";
                 falg = conn.executeUpdate(sql);
                 System.out.println("Add Reader Info SQL：" + sql);
                 conn.close();

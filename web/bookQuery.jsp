@@ -16,6 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Library Management System</title>
+        <link href="CSS/style.css" rel="stylesheet">
     </head>
     <body onLoad="clockon(bgclock)">
         <%@include file="banner.jsp"%>

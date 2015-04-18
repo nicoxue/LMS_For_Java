@@ -70,7 +70,6 @@ public class Reader extends Action {
         Date date1 = new Date();
         java.sql.Date date = new java.sql.Date(date1.getTime());
         readerForm.setCreateDate(date.toString());
-        readerForm.setOperator(readerForm.getOperator());
         readerForm.setRemark(readerForm.getRemark());
         int a = readerDAO.insert(readerForm);
         if (a == 0) {
@@ -136,7 +135,6 @@ public class Reader extends Action {
         readerForm.setPaperNO(readerForm.getPaperNO());
         readerForm.setTel(readerForm.getTel());
         readerForm.setEmail(readerForm.getEmail());
-        readerForm.setOperator(readerForm.getOperator());
         readerForm.setRemark(readerForm.getRemark());
         int ret = readerDAO.update(readerForm);
         if (ret == 0) {

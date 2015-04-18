@@ -42,6 +42,8 @@ public class Borrow extends Action {
         if (action == null || "".equals(action)) {
             request.setAttribute("error", "Error Operation!");
             return mapping.findForward("error");
+        } else if ("bookBorrowSort".equals(action)) {
+            return bookBorrowSort(mapping, form, request, response);
         } else if ("bookborrow".equals(action)) {
             return bookborrow(mapping, form, request, response);  //book borrow
         } else if ("bookrenew".equals(action)) {
@@ -53,6 +55,15 @@ public class Borrow extends Action {
         }
         request.setAttribute("error", "Operation");
         return mapping.findForward("error");
+    }
+   
+    //Borrow Rank
+    private ActionForward bookBorrowSort(ActionMapping mapping, ActionForm form,
+            HttpServletRequest request,
+            HttpServletResponse response) {
+        request.setAttribute("bookBorrowSort", borrowDAO.bookBorrowSort());
+        return mapping.findForward("bookBorrowSort");
+
     }
 
     /**

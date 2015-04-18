@@ -1,6 +1,6 @@
 <%-- 
     Document   : bookBorrowSort
-    Created on : 2015-4-17, 22:18:46
+    Created on : 2015-4-18, 18:23:44
     Author     : xuejie87
 --%>
 
@@ -27,7 +27,7 @@
                         <tr>
                             <td height="510" valign="top" style="padding:5px;"><table width="98%" height="487"  border="0" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td height="22" valign="top" class="word_orange">Now: Book Borrow Rank &gt;&gt;&gt;</td>
+                                        <td height="22" valign="top" class="word_orange">Now: Book Borrow Rank  &gt;&gt;&gt;</td>
                                     </tr>
                                     <tr>
                                         <td align="center" valign="top"><%
@@ -35,7 +35,7 @@
                                             %>
                                             <table width="100%" height="30"  border="0" cellpadding="0" cellspacing="0">
                                                 <tr>
-                                                    <td height="36" align="center">No Borrow Info</td>
+                                                    <td height="36" align="center">No Book Borrow Info!</td>
                                                 </tr>
                                             </table>
                                             <%
@@ -44,21 +44,18 @@
                                                 Iterator it = coll.iterator();
                                                 int degree = 0;
                                                 String bookname = "";
-                                                String typename = "";
                                                 String barcode_book = "";
-                                                String bookcase = "";
-                                                String pub = "";
                                                 String author = "";
                                                 String translator = "";
                                                 Float price = new Float(0);
                                             %>
                                             <table width="98%"  border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#F6B83B" bordercolorlight="#FFFFFF">
                                                 <tr align="center" bgcolor="#e3F4F7">
-                                                    <td width="8%" bgcolor="#F9D16B">Book Time</td>
-                                                    <td width="11%" bgcolor="#F9D16B">Book Code</td>
+                                                    <td width="8%" bgcolor="#F9D16B">Borrow Count</td>
+                                                    <td width="11%" bgcolor="#F9D16B">Book Bar Code</td>
                                                     <td width="17%" bgcolor="#F9D16B">Book Name</td>
-                                                    <td width="11%" bgcolor="#F9D16B">Writer</td>
-                                                    <td colspan="2" bgcolor="#F9D16B">Price</td>
+                                                    <td width="11%" bgcolor="#F9D16B">Author</td>
+                                                    <td colspan="2" bgcolor="#F9D16B">Price(Dollar)</td>
                                                 </tr>
                                                 <%
                                                     while (it.hasNext()) {
@@ -73,9 +70,6 @@
                                                     <td align="center">&nbsp;<%=degree%></td>
                                                     <td style="padding:5px;">&nbsp;<%=barcode_book%></td>
                                                     <td style="padding:5px;"><%=bookname%></td>
-                                                    <td style="padding:5px;"><%=typename%></td>
-                                                    <td align="center">&nbsp;<%=bookcase%></td>
-                                                    <td align="center">&nbsp;<%=pub%></td>
                                                     <td width="11%" align="center"><%=author%></td>
                                                     <td width="8%" align="center"><%=price%></td>
                                                 </tr>
@@ -88,7 +82,7 @@
                                 </table>
                             </td>
                         </tr>
-                    </table>                
+                    </table>
                 </td>
             </tr>
         </table>

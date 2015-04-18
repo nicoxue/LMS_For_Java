@@ -6,9 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
 <!DOCTYPE html>
-<html>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>    
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Library Management System</title>
         <link href="CSS/style.css" rel="stylesheet">
         <script language="javascript">
@@ -83,7 +83,8 @@
                                                                                         <td>&nbsp;</td>
                                                                                     </tr>
                                                                                 </table> 
-                                                                            </form>				   </td>
+                                                                            </form>				   
+                                                                        </td>
                                                                         <td width="1%">&nbsp;</td>
                                                                     </tr>
                                                                 </table></td>
@@ -99,9 +100,11 @@
                                             <tr>
                                                 <td align="center" class="word_login">CopyRight &copy; 2015 JiaJun Xue<br></td>
                                             </tr>
-                                        </table></td>
+                                        </table>
+                                    </td>
                                 </tr>
-                            </table></td>
+                            </table>
+                        </td>
                     </tr>
                 </table>
             </td>

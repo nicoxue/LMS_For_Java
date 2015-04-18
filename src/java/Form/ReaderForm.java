@@ -19,7 +19,6 @@ public class ReaderForm extends ActionForm {
     private String email;
     private Integer id;
     private String name;
-    private String operator;
     private String paperNO;
     private String paperType;
     private String remark;
@@ -62,10 +61,6 @@ public class ReaderForm extends ActionForm {
         this.paperNO = paperNO;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -104,10 +99,6 @@ public class ReaderForm extends ActionForm {
 
     public String getName() {
         return name;
-    }
-
-    public String getOperator() {
-        return operator;
     }
 
     public String getPaperNO() {
