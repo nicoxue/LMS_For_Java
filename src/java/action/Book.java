@@ -61,13 +61,9 @@ public class Book extends Action{
            BookForm bookForm = (BookForm) form;
            bookForm.setBarcode(bookForm.getBarcode());
            bookForm.setBookName(bookForm.getBookName());
-           bookForm.setTypeId(bookForm.getTypeId());
            bookForm.setAuthor(bookForm.getAuthor());
-           bookForm.setTranslator(bookForm.getTranslator());
-           bookForm.setIsbn(bookForm.getIsbn());
            bookForm.setPrice(bookForm.getPrice());
            bookForm.setPage(bookForm.getPage());
-           bookForm.setBookcaseid(bookForm.getBookcaseid()); 
            Date date1=new Date();
            java.sql.Date date=new java.sql.Date(date1.getTime());
            bookForm.setInTime(date.toString());
@@ -132,13 +128,9 @@ public class Book extends Action{
             BookForm bookForm=(BookForm)form;		
             bookForm.setBarcode(bookForm.getBarcode());	
             bookForm.setBookName(bookForm.getBookName());
-            bookForm.setTypeId(bookForm.getTypeId());
             bookForm.setAuthor(bookForm.getAuthor());
-            bookForm.setTranslator(bookForm.getTranslator());
-            bookForm.setIsbn(bookForm.getIsbn());
             bookForm.setPrice(bookForm.getPrice());
             bookForm.setPage(bookForm.getPage());
-            bookForm.setBookcaseid(bookForm.getBookcaseid());
             bookForm.setInTime(bookForm.getInTime());
             bookForm.setOperator(bookForm.getOperator());
             int ret=bookDAO.update(bookForm);			
@@ -163,39 +155,4 @@ public class Book extends Action{
                 return mapping.findForward("bookDel");
             }
         }    
-
-//    @Override
-//    public Object getValue(String key) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void putValue(String key, Object value) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void setEnabled(boolean b) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public boolean isEnabled() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void addPropertyChangeListener(PropertyChangeListener listener) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void removePropertyChangeListener(PropertyChangeListener listener) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 }

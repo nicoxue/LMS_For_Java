@@ -26,13 +26,10 @@ public class BookDAO {
         Collection bookColl = new ArrayList();
         String sql = "";
         if (str != "all" && str != null && str != "") {
-            sql = "select * from (select b.*,c.name as bookcaseName,p.pubname as publishing,t.typename from"
-                    + " tb_bookinfo b left join tb_bookcase c on b.bookcase=c.id join tb_publishing p on b.ISBN=p.ISBN "
-                    + "join tb_booktype t on b.typeid=t.id where b.del=0)  as book where book." + str + "'";
+            sql = "select * from (select b.*,c.name as bookcaseName from"
+                    + " tb_bookinfo b where b.del=0)  as book where book." + str + "'";
         } else {
-            sql = "select b.*,c.name as bookcaseName,p.pubname as publishing,t.typename from tb_bookinfo b left join "
-                    + "tb_bookcase c on b.bookcase=c.id join tb_publishing p on b.ISBN=p.ISBN "
-                    + "join tb_booktype t on b.typeid=t.id where b.del=0";
+            sql = "select b.*,c.name as bookcaseName from tb_bookinfo b where b.del=0";
         }
         System.out.println("SELECT BOOKS SQL：" + sql);
         ResultSet rs = conn.executeQuery(sql);
@@ -41,20 +38,13 @@ public class BookDAO {
                 bookForm = new BookForm();
                 bookForm.setBarcode(rs.getString(1));
                 bookForm.setBookName(rs.getString(2));
-                bookForm.setTypeId(rs.getInt(3));
-                bookForm.setAuthor(rs.getString(4));
-                bookForm.setTranslator(rs.getString(5));
-                bookForm.setIsbn(rs.getString(6));
-                bookForm.setPrice(Float.valueOf(rs.getString(7)));  //convert
-                bookForm.setPage(rs.getInt(8));
-                bookForm.setBookcaseid(rs.getInt(9));
-                bookForm.setInTime(rs.getString(10));
-                bookForm.setOperator(rs.getString(11));
-                bookForm.setDel(rs.getInt(12));
-                bookForm.setId(Integer.valueOf(rs.getString(13)));
-                bookForm.setBookcaseName(rs.getString(14));
-                bookForm.setPublishing(rs.getString(15));
-                bookForm.setTypeName(rs.getString(16));
+                bookForm.setAuthor(rs.getString(3));
+                bookForm.setPrice(Float.valueOf(rs.getString(4)));  //convert
+                bookForm.setPage(rs.getInt(5));
+                bookForm.setInTime(rs.getString(6));
+                bookForm.setOperator(rs.getString(7));
+                bookForm.setDel(rs.getInt(8));
+                bookForm.setId(Integer.valueOf(rs.getString(9)));
                 bookColl.add(bookForm);
             }
         } catch (SQLException ex) {
@@ -67,9 +57,7 @@ public class BookDAO {
     //modify data
     public BookForm queryM(BookForm bookForm1) {
         BookForm bookForm = null;
-        String sql = "select b.*,c.name as bookcaseName,p.pubname as publishing,t.typename from tb_bookinfo b "
-                + "left join tb_bookcase c on b.bookcase=c.id join tb_publishing p on b.ISBN=p.ISBN "
-                + "join tb_booktype t on b.typeid=t.id where b.id=" + bookForm1.getId() + "";
+        String sql = "select b.*,c.name as bookcaseName from tb_bookinfo where b.id=" + bookForm1.getId() + "";
         System.out.println("MODIFY URL SQL：" + sql);
         ResultSet rs = conn.executeQuery(sql);
         try {
@@ -77,20 +65,13 @@ public class BookDAO {
                 bookForm = new BookForm();
                 bookForm.setBarcode(rs.getString(1));
                 bookForm.setBookName(rs.getString(2));
-                bookForm.setTypeId(rs.getInt(3));
-                bookForm.setAuthor(rs.getString(4));
-                bookForm.setTranslator(rs.getString(5));
-                bookForm.setIsbn(rs.getString(6));
-                bookForm.setPrice(Float.valueOf(rs.getString(7)));  //convert
-                bookForm.setPage(rs.getInt(8));
-                bookForm.setBookcaseid(rs.getInt(9));
-                bookForm.setInTime(rs.getString(10));
-                bookForm.setOperator(rs.getString(11));
-                bookForm.setDel(rs.getInt(12));
-                bookForm.setId(Integer.valueOf(rs.getString(13)));
-                bookForm.setBookcaseName(rs.getString(14));
-                bookForm.setPublishing(rs.getString(15));
-                bookForm.setTypeName(rs.getString(16));
+                bookForm.setAuthor(rs.getString(3));
+                bookForm.setPrice(Float.valueOf(rs.getString(4)));  //convert
+                bookForm.setPage(rs.getInt(5));
+                bookForm.setInTime(rs.getString(6));
+                bookForm.setOperator(rs.getString(7));
+                bookForm.setDel(rs.getInt(8));
+                bookForm.setId(Integer.valueOf(rs.getString(9)));
             }
         } catch (SQLException ex) {
         }
@@ -101,9 +82,8 @@ public class BookDAO {
     //select borrow
     public BookForm queryB(String f, String key) {
         BookForm bookForm = null;
-        String sql = "select b.*,c.name as bookcaseName,p.pubname as publishing,t.typename from tb_bookinfo b "
-                + "left join tb_bookcase c on b.bookcase=c.id join tb_publishing p on b.ISBN=p.ISBN "
-                + "join tb_booktype t on b.typeid=t.id where b." + f + "='" + key + "'";
+        String sql = "select b.*,c.name as bookcaseName,p.pubname as publishing,t.typename from tb_bookinfo"
+                + "where b." + f + "='" + key + "'";
         System.out.println("BORROW BOOKS SQL：" + sql);
         ResultSet rs = conn.executeQuery(sql);
         try {
@@ -111,20 +91,13 @@ public class BookDAO {
                 bookForm = new BookForm();
                 bookForm.setBarcode(rs.getString(1));
                 bookForm.setBookName(rs.getString(2));
-                bookForm.setTypeId(rs.getInt(3));
                 bookForm.setAuthor(rs.getString(4));
-                bookForm.setTranslator(rs.getString(5));
-                bookForm.setIsbn(rs.getString(6));
                 bookForm.setPrice(Float.valueOf(rs.getString(7)));  //convert
                 bookForm.setPage(rs.getInt(8));
-                bookForm.setBookcaseid(rs.getInt(9));
                 bookForm.setInTime(rs.getString(10));
                 bookForm.setOperator(rs.getString(11));
                 bookForm.setDel(rs.getInt(12));
                 bookForm.setId(Integer.valueOf(rs.getString(13)));
-                bookForm.setBookcaseName(rs.getString(14));
-                bookForm.setPublishing(rs.getString(15));
-                bookForm.setTypeName(rs.getString(16));
             }
         } catch (SQLException ex) {
         }
@@ -143,11 +116,10 @@ public class BookDAO {
             if (rs.next()) {
                 falg = 2;
             } else {
-                sql = "Insert into tb_bookinfo (barcode,bookname,typeid,author,translator,isbn,price,page,bookcase,inTime,"
+                sql = "Insert into tb_bookinfo (barcode,bookname,author,price,page,inTime,"
                         + "operator) values('" + bookForm.getBarcode() + "','" + bookForm.getBookName()
-                        + "'," + bookForm.getTypeId() + ",'" + bookForm.getAuthor() + "','" + bookForm.getTranslator()
-                        + "','" + bookForm.getIsbn() + "'," + bookForm.getPrice() + "," + bookForm.getPage() + ","
-                        + bookForm.getBookcaseid() + ",'" + bookForm.getInTime() + "','" + bookForm.getOperator() + "')";
+                        + "',"  + ",'" + bookForm.getAuthor() + "','" + bookForm.getPrice() + "," 
+                        + bookForm.getPage() + "," + bookForm.getInTime() + "','" + bookForm.getOperator() + "')";
                 falg = conn.executeUpdate(sql);
                 System.out.println("ADD BOOKS INFO SQL：" + sql);
                 conn.close();
@@ -161,9 +133,8 @@ public class BookDAO {
 
     //update data
     public int update(BookForm bookForm) {
-        String sql = "Update tb_bookinfo set typeid=" + bookForm.getTypeId() + ",author='" + bookForm.getAuthor()
-                + "',translator='" + bookForm.getTranslator() + "',isbn='" + bookForm.getIsbn() + "',price="
-                + bookForm.getPrice() + ",page=" + bookForm.getPage() + ",bookcase=" + bookForm.getBookcaseid()
+        String sql = "Update tb_bookinfo set author='" + bookForm.getAuthor()
+                + "',price= '" + bookForm.getPrice() + ",page=" + bookForm.getPage()                
                 + " where id=" + bookForm.getId() + "";
         int falg = conn.executeUpdate(sql);
         System.out.println("UPDATE DATA SQL：" + sql);

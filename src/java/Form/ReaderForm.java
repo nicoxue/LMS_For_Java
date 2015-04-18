@@ -26,8 +26,6 @@ public class ReaderForm extends ActionForm {
     private String sex;
     private String tel;
     private String vocation;
-    private int typeid;
-    private String typename;
     private int number;
 
     public ReaderForm() {
@@ -137,27 +135,11 @@ public class ReaderForm extends ActionForm {
         return vocation;
     }
 
-    public int getTypeid() {
-        return typeid;
-    }
-
-    public void setTypeid(int typeid) {
-        this.typeid = typeid;
-    }
-
     public int getNumber() {
         return number;
     }
 
     public void setNumber(int number) {
         this.number = number;
-    }
-
-    public String getTypename() {
-        return typename;
-    }
-
-    public void setTypename(String typename) {
-        this.typename = typename;
     }
 }

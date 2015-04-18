@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : book
     Created on : 14-Apr-2015, 4:09:58 PM
     Author     : JIAJUN XUE <nicoxue0324@gmail.com>
@@ -19,7 +19,7 @@
         <link href="CSS/style.css" rel="stylesheet">
     </head>
     <body onLoad="clockon(bgclock)">
-        <%@include file="banner.jsp"%>
+        <%@include file="loginif_check.jsp"%>
         <%@include file="navigation.jsp"%>
         <table width="778"  border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
@@ -67,8 +67,6 @@
                                                     <td width="13%" bgcolor="#F9D16B">Code</td>  
                                                     <td width="26%" bgcolor="#F9D16B">Book Name</td>
                                                     <td width="15%" bgcolor="#F9D16B">Book Type</td>
-                                                    <td width="14%" bgcolor="#F9D16B">Publisher</td>
-                                                    <td width="12%" bgcolor="#F9D16B">Shelf</td>
                                                     <td width="9%" bgcolor="#F9D16B">Modify</td>
                                                     <td width="5%" bgcolor="#F9D16B">Delete</td>
                                                 </tr>
@@ -79,7 +77,6 @@
                                                         bookname = bookForm.getBookName();
                                                         barcode = bookForm.getBarcode();
                                                         typename = bookForm.getTypeName();
-                                                        publishing = bookForm.getPublishing();
                                                         bookcase = bookForm.getBookcaseName();
                                                 %> 
                                                 <tr>
@@ -101,7 +98,8 @@
                                 </table>
                             </td>
                         </tr>
-                    </table><%@ include file="copyright.jsp"%></td>
+                    </table>
+                </td>
             </tr>
         </table>
     </body>

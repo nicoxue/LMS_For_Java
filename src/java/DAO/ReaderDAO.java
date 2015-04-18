@@ -26,7 +26,7 @@ public class ReaderDAO {
         Collection readerColl = new ArrayList();
         String sql = "";
         if (strif != "all" && strif != null && strif != "") {
-            sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id "
+            sql = "select r.*,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id "
                     + "where " + strif + "";
         } else {
             sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id";

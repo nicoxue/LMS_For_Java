@@ -6,6 +6,7 @@
 package Form;
 
 import org.apache.struts.action.ActionForm;
+
 /**
  *
  * @author JIAJUN XUE <nicoxue0324@gmail.com>
@@ -15,20 +16,13 @@ public class BookForm extends ActionForm {
     private String author;
     private String barcode;
     private String bookName;
-    private String bookcaseName;
-    private int bookcaseid;
     private int days;
     private int del;
     private Integer id;
     private String inTime;
-    private String isbn;
     private String operator;
     private int page;
     private Float price;
-    private String publishing;
-    private String translator;
-    private int typeId;
-    private String typeName;
 
     public BookForm() {
     }
@@ -41,22 +35,6 @@ public class BookForm extends ActionForm {
         this.author = author;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
-
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
-    }
-
-    public void setTranslator(String translator) {
-        this.translator = translator;
-    }
-
-    public void setPublishing(String publishing) {
-        this.publishing = publishing;
-    }
-
     public void setPrice(Float price) {
         this.price = price;
     }
@@ -67,10 +45,6 @@ public class BookForm extends ActionForm {
 
     public void setOperator(String operator) {
         this.operator = operator;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
     }
 
     public void setInTime(String inTime) {
@@ -89,14 +63,6 @@ public class BookForm extends ActionForm {
         this.days = days;
     }
 
-    public void setBookcaseid(int bookcaseid) {
-        this.bookcaseid = bookcaseid;
-    }
-
-    public void setBookcaseName(String bookcaseName) {
-        this.bookcaseName = bookcaseName;
-    }
-
     public void setBookName(String bookName) {
         this.bookName = bookName;
     }
@@ -111,14 +77,6 @@ public class BookForm extends ActionForm {
 
     public String getBookName() {
         return bookName;
-    }
-
-    public String getBookcaseName() {
-        return bookcaseName;
-    }
-
-    public int getBookcaseid() {
-        return bookcaseid;
     }
 
     public int getDays() {
@@ -137,10 +95,6 @@ public class BookForm extends ActionForm {
         return inTime;
     }
 
-    public String getIsbn() {
-        return isbn;
-    }
-
     public String getOperator() {
         return operator;
     }
@@ -152,21 +106,4 @@ public class BookForm extends ActionForm {
     public Float getPrice() {
         return price;
     }
-
-    public String getPublishing() {
-        return publishing;
-    }
-
-    public String getTranslator() {
-        return translator;
-    }
-
-    public int getTypeId() {
-        return typeId;
-    }
-
-    public String getTypeName() {
-        return typeName;
-    }
-
 }
