@@ -6,7 +6,6 @@
 package Form;
 
 import org.apache.struts.action.ActionForm;
-
 /**
  *
  * @author JIAJUN XUE <nicoxue0324@gmail.com>
