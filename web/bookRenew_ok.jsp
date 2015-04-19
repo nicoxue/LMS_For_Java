@@ -1,7 +1,7 @@
 <%-- 
     Document   : bookRenew_ok
-    Created on : 2015-4-17, 23:40:14
-    Author     : xuejie87
+    Created on : 2015-4-16, 23:40:14
+    Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
 <script language="javascript">

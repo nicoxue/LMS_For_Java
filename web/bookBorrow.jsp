@@ -1,7 +1,7 @@
 <%-- 
     Document   : bookBorrow
-    Created on : 2015-4-17, 22:18:01
-    Author     : xuejie87
+    Created on : 2015-4-16, 22:18:01
+    Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java" import="java.sql.*" errorPage=""%>
@@ -54,12 +54,14 @@
         <%@include file="navigation.jsp"%>
         <table width="778"  border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
-                <td valign="top" bgcolor="#FFFFFF"><table width="100%" height="509"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
+                <td valign="top" bgcolor="#FFFFFF">
+                    <table width="100%" height="509"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
                         <tr>
                             <td height="27" valign="top" style="padding:5px;" class="word_orange">Now：Book Borrow and Back &gt; Book Borrow &gt;&gt;&gt;</td>
                         </tr>
                         <tr>
-                            <td align="center" valign="top" style="padding:5px;"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                            <td align="center" valign="top" style="padding:5px;">
+                                <table width="100%"  border="0" cellspacing="0" cellpadding="0">
                                     <form name="form1" method="post" action="borrow.do?action=bookborrow">
                                         <tr>
                                             <td height="47" background="Images/borrowBackRenew.gif">&nbsp;</td>
@@ -87,7 +89,8 @@
                                                             %>
                                                             <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
                                                                 <tr>
-                                                                    <td><table width="90%" height="21" border="0" cellpadding="0" cellspacing="0">
+                                                                    <td>
+                                                                        <table width="90%" height="21" border="0" cellpadding="0" cellspacing="0">
                                                                             <tr>
                                                                                 <td width="24%" height="18" style="padding-left:7px;padding-top:7px;"><img src="Images/reader_checkbg.jpg" width="142" height="18"></td>
                                                                                 <td width="76%" style="padding-top:7px;">Reader Code：
@@ -95,7 +98,8 @@
                                                                                     &nbsp;
                                                                                     <input name="Button" type="button" class="btn_grey" value="Submit" onClick="checkreader(form1)"></td>
                                                                             </tr>
-                                                                        </table></td>
+                                                                        </table>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td height="13" align="left" style="padding-left:7px;"><hr width="90%" size="1"></td>
@@ -117,7 +121,6 @@
                                                                         </table>
                                                                     </td>
                                                                 </tr>
-
                                                             </table>
                                                         </td>
                                                     </tr>
@@ -133,7 +136,8 @@
                                                         </td>
                                                     </tr> 
                                                     <tr>
-                                                        <td valign="top" bgcolor="#FCEC9A" style="padding:5px"><table width="99%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolorlight="#FFFFFF" bordercolordark="#F6B83B" bgcolor="#FFFFFF">
+                                                        <td valign="top" bgcolor="#FCEC9A" style="padding:5px">
+                                                            <table width="99%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolorlight="#FFFFFF" bordercolordark="#F6B83B" bgcolor="#FFFFFF">
                                                                 <tr align="center" bgcolor="#F9D16B">
                                                                     <td width="29%" height="25">Book Name</td>
                                                                     <td width="12%">Time Borrowed</td>
@@ -173,7 +177,6 @@
                                         </tr>
                                     </form>
                                 </table>
-
                             </td>
                         </tr>
                     </table>

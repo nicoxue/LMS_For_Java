@@ -1,7 +1,7 @@
 <%-- 
     Document   : bookQuery
-    Created on : 2015-4-17, 23:37:24
-    Author     : xuejie87
+    Created on : 2015-4-16, 23:37:24
+    Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java" import="java.sql.*" errorPage=""%>
@@ -19,13 +19,15 @@
         <link href="CSS/style.css" rel="stylesheet">
     </head>
     <body onLoad="clockon(bgclock)">
-        <%@include file="banner.jsp"%>
+        <%@include file="loginif_check.jsp"%>
         <%@include file="navigation.jsp"%>
         <table width="778"  border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
-                <td valign="top" bgcolor="#FFFFFF"><table width="99%" height="510"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
+                <td valign="top" bgcolor="#FFFFFF">
+                    <table width="99%" height="510"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
                         <tr>
-                            <td height="510" valign="top" style="padding:5px;"><table width="98%" height="487"  border="0" cellpadding="0" cellspacing="0">
+                            <td height="510" valign="top" style="padding:5px;">
+                                <table width="98%" height="487"  border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td height="22" valign="top" class="word_orange">Now:System Query &gt; Book Query &gt;&gt;&gt;</td>
                                     </tr>

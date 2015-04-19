@@ -1,6 +1,6 @@
 <%-- 
-    Document   : book_ok
-    Created on : 2015-4-16, 22:16:01
+    Document   : manager_ok
+    Created on : 2015-4-18, 15:51:15
     Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Operation Success !</title>
+        <title>Operation Success!</title>
     </head>
     <body>
         <%int para = Integer.parseInt(request.getParameter("para"));
@@ -17,22 +17,24 @@
                 case 1:
         %>
         <script language="javascript">
-            alert("Add Book Info Success!");
-            window.location.href = "book.do?action=bookQuery";
+            alert("Add administrator success!");
+            opener.location.reload();
+            window.close();
         </script>	
         <%	break;
             case 2:
         %>
         <script language="javascript">
-            alert("Modify Book Info Success!");
-            window.location.href = "book.do?action=bookQuery";
+            alert("Set authorization success!");
+            opener.location.reload();
+            window.close();
         </script>		
         <%	break;
             case 3:
         %>
         <script language="javascript">
-            alert("Delete Book Info Success!");
-            window.location.href = "book.do?action=bookQuery";
+            alert("Delete administrator Success!");
+            window.location.href = "manager.do?action=managerQuery";
         </script>		
         <%	break;
             }

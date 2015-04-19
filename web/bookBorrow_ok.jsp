@@ -1,7 +1,7 @@
 <%-- 
     Document   : bookBorrow_ok
-    Created on : 2015-4-17, 22:18:17
-    Author     : xuejie87
+    Created on : 2015-4-16, 22:18:17
+    Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
 <script language="javascript">

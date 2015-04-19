@@ -23,9 +23,11 @@
         <%@include file="navigation.jsp"%>
         <table width="778"  border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
-                <td valign="top" bgcolor="#FFFFFF"><table width="99%" height="510"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
+                <td valign="top" bgcolor="#FFFFFF">
+                    <table width="99%" height="510"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
                         <tr>
-                            <td height="510" valign="top" style="padding:5px;"><table width="98%"  border="0" cellpadding="0" cellspacing="0">
+                            <td height="510" valign="top" style="padding:5px;">
+                                <table width="98%"  border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td height="22" valign="top" class="word_orange">Now：Library Management &gt; Book Info &gt;&gt;&gt;</td>
                                     </tr>
@@ -83,7 +85,8 @@
                                                         }
                                                     }
                                                 %>  
-                                            </table></td>
+                                            </table>
+                                        </td>
                                     </tr>
                                 </table>
                             </td>

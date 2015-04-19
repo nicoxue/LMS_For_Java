@@ -1,17 +1,20 @@
 <%-- 
     Document   : pwd_ok
     Created on : 2015-4-17, 23:47:11
-    Author     : xuejie87
+    Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" language="java" import="java.sql.*" errorPage=""%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Operation Success!</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <script language="javascript">
+            alert("Change Password Success!");
+            window.location.href = "manager.do?action=querypwd";
+        </script>	
     </body>
 </html>

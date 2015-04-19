@@ -40,16 +40,20 @@
             <td>
                 <table width="100%"  border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td valign="top"><table width="100%" height="525"  border="0" align="center" cellpadding="0" cellspacing="0">
+                        <td valign="top">
+                            <table width="100%" height="525"  border="0" align="center" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td height="523" align="center" valign="top"><table width="100%" height="271"  border="0" cellpadding="0" cellspacing="0">
+                                    <td height="523" align="center" valign="top">
+                                        <table width="100%" height="271"  border="0" cellpadding="0" cellspacing="0">
                                             <tr>
-                                                <td height="271" align="right" valign="top" class="word_orange"><table width="100%" height="255"  border="0" cellpadding="0" cellspacing="0" background="Images/login.jpg">
+                                                <td height="271" align="right" valign="top" class="word_orange">
+                                                    <table width="100%" height="255"  border="0" cellpadding="0" cellspacing="0" background="Images/login.jpg">
                                                         <tr>
                                                             <td height="57">&nbsp;</td>
                                                         </tr>
                                                         <tr>
-                                                            <td height="179" valign="top"><table width="100%" height="63"  border="0" cellpadding="0" cellspacing="0">
+                                                            <td height="179" valign="top">
+                                                                <table width="100%" height="63"  border="0" cellpadding="0" cellspacing="0">
                                                                     <tr>
                                                                         <td width="2%">&nbsp;</td>
                                                                         <td width="97%" align="center" valign="top">
@@ -87,14 +91,15 @@
                                                                         </td>
                                                                         <td width="1%">&nbsp;</td>
                                                                     </tr>
-                                                                </table></td>
+                                                                </table>                                                                    
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td height="19">&nbsp;</td>
                                                         </tr>
-                                                    </table></td>
+                                                    </table>                                                        
+                                                </td>
                                             </tr>
-
                                         </table>
                                         <table width="100%" height="27"  border="0" cellpadding="0" cellspacing="0">
                                             <tr>

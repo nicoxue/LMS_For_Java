@@ -1,6 +1,6 @@
 <%-- 
     Document   : book_add
-    Created on : 2015-4-17, 22:11:16
+    Created on : 2015-4-16, 22:11:16
     Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
@@ -42,14 +42,17 @@
     <%@include file="navigation.jsp"%>
     <table width="778"  border="0" cellspacing="0" cellpadding="0" align="center">
         <tr>
-            <td valign="top" bgcolor="#FFFFFF"><table width="99%" height="510"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
+            <td valign="top" bgcolor="#FFFFFF">
+                <table width="99%" height="510"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
                     <tr>
-                        <td height="510" valign="top" style="padding:5px;"><table width="98%" height="487"  border="0" cellpadding="0" cellspacing="0">
+                        <td height="510" valign="top" style="padding:5px;">
+                            <table width="98%" height="487"  border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td height="22" valign="top" class="word_orange">Now：Book Management &gt; Book Info &gt; Add Book Info &gt;&gt;&gt;</td>
                                 </tr>
                                 <tr>
-                                    <td align="center" valign="top"><table width="100%" height="493"  border="0" cellpadding="0" cellspacing="0">
+                                    <td align="center" valign="top">
+                                        <table width="100%" height="493"  border="0" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td align="center" valign="top">
                                                     <form name="form1" method="post" action="book.do?action=bookAdd">
@@ -96,12 +99,14 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        </table></td>
+                                        </table>
+                                    </td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
-                </table></td>
+                </table>
+            </td>
         </tr>
     </table>
 </body>

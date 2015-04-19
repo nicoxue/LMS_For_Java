@@ -1,7 +1,7 @@
 <%-- 
     Document   : bookRenew
-    Created on : 2015-4-17, 23:38:27
-    Author     : xuejie87
+    Created on : 2015-4-16, 23:38:27
+    Author     : JIAJUN XUE <nicoxue0324@gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java" import="java.sql.*" errorPage=""%>
@@ -35,12 +35,14 @@
         <%@include file="navigation.jsp"%>
         <table width="778"  border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
-                <td valign="top" bgcolor="#FFFFFF"><table width="100%" height="509"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
+                <td valign="top" bgcolor="#FFFFFF">
+                    <table width="100%" height="509"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
                         <tr>
                             <td height="27" valign="top" style="padding:5px;" class="word_orange">&nbsp;Now:Book Bakc &gt; Book Renew &gt;&gt;&gt;</td>
                         </tr>
                         <tr>
-                            <td align="center" valign="top" style="padding:5px;"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                            <td align="center" valign="top" style="padding:5px;">
+                                <table width="100%"  border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td height="47" background="Images/borrowBackRenew_r.gif">&nbsp;</td>
                                     </tr>
@@ -63,12 +65,10 @@
                                                             birthday = readerForm.getBirthday();
                                                             paperType = readerForm.getPaperType();
                                                             paperNO = readerForm.getPaperNO();
-                                                            number = readerForm.getNumber();
                                                         }
                                                         %>
                                                         <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
                                                             <form name="form1" method="post" action="borrow.do?action=bookrenew">
-
                                                                 <tr>
                                                                     <td><table width="90%" height="21" border="0" cellpadding="0" cellspacing="0">
                                                                             <tr>
@@ -105,10 +105,12 @@
                                                                     </td>
                                                                 </tr>
                                                             </form>
-                                                        </table></td>
+                                                        </table>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td valign="top"><table width="100%" height="35" border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolorlight="#FFFFFF" bordercolordark="#F6B83B" bgcolor="#FFFFFF">
+                                                    <td valign="top">
+                                                        <table width="100%" height="35" border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolorlight="#FFFFFF" bordercolordark="#F6B83B" bgcolor="#FFFFFF">
                                                             <tr align="center" bgcolor="#e3F4F7">
                                                                 <td width="24%" height="25" bgcolor="#FFF9D9">Book Name</td>
                                                                 <td width="12%" bgcolor="#FFF9D9">Borrow Time</td>
@@ -127,7 +129,7 @@
                                                                     while (it.hasNext()) {
                                                                         BorrowForm borrowForm = (BorrowForm) it.next();
                                                                         id = borrowForm.getId().intValue();
-                                                                        bookname = chStr.toChinese(borrowForm.getBookName());
+                                                                        bookname = borrowForm.getBookName();
                                                                         borrowTime = borrowForm.getBorrowTime();
                                                                         backTime = borrowForm.getBackTime();
                                                                         price = borrowForm.getPrice();
@@ -149,7 +151,8 @@
                                     <tr>
                                         <td height="19" background="Images/main_booksort_2.gif">&nbsp;</td>
                                     </tr>
-                                </table></td>
+                                </table>                                    
+                            </td>
                         </tr>
                     </table>
                 </td>
